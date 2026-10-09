@@ -1,0 +1,220 @@
+<title>Harsh Arora Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a spec-sheet portfolio. Left label column, right content column; each project leads with its measured result. */
+:root{
+  --bg:#EDF0EE; --surface:#F8FAF9; --fg:#14201C; --muted:#53635D; --line:#CBD4D0; --accent:#0B6B57; --accent-fg:#FFFFFF; --signal:#B4430F;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1512;--surface:#142019;--fg:#E4ECE8;--muted:#9AABA4;--line:#27362F;--accent:#4FD1B0;--accent-fg:#06231B;--signal:#F0935F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1512;--surface:#142019;--fg:#E4ECE8;--muted:#9AABA4;--line:#27362F;--accent:#4FD1B0;--accent-fg:#06231B;--signal:#F0935F;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin-inline:auto}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:20px;border-bottom:1px solid var(--line)}
+.mark{font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+nav{display:flex;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.hero{padding-block:72px 56px;display:grid;gap:28px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.8rem,9vw,6rem);line-height:.98;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.lede{max-width:60ch;font-size:1.15rem;color:var(--muted);margin:0}
+.lede strong{color:var(--fg);font-weight:500}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:14px;text-decoration:none;padding:11px 18px;border:1px solid var(--fg);border-radius:4px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.btn:hover{border-color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts div{padding:18px 16px 18px 0}
+.facts dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:4px 0 0;font-family:var(--display);font-size:1.5rem;font-weight:500}
+section{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:24px 48px;padding-block:64px;border-bottom:1px solid var(--line)}
+section>h2{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:6px 0 0}
+.project{display:grid;grid-template-columns:minmax(0,160px) minmax(0,1fr);gap:8px 32px;padding-block:32px;border-top:1px solid var(--line)}
+.project:first-child{border-top:0;padding-top:0}
+.metric{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,6vw,3.6rem);line-height:1;letter-spacing:-.03em;color:var(--signal)}
+.metric small{display:block;font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:8px;line-height:1.4}
+.project h3{font-family:var(--display);font-size:1.6rem;font-weight:700;margin:0 0 4px;letter-spacing:-.01em}
+.stack{font-family:var(--mono);font-size:13px;color:var(--accent);margin:0 0 12px}
+.project ul{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
+.project li::marker{color:var(--accent)}
+.project li strong{color:var(--fg);font-weight:500}
+.skills{display:grid;gap:0;margin:0}
+.skills div{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:4px 24px;padding-block:14px;border-top:1px solid var(--line)}
+.skills div:first-child{border-top:0;padding-top:0}
+.skills dt{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.skills dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.list{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.list li{padding-block:14px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline}
+.list li:first-child{border-top:0;padding-top:0}
+.list b{font-weight:500}
+.list span{color:var(--muted);font-size:14px}
+.list .tag{font-family:var(--mono);font-size:12px;color:var(--accent)}
+h3.sub{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:40px 0 16px}
+h3.sub:first-child{margin-top:0}
+.contact-grid{display:grid;gap:0}
+.contact-grid>div{display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr) auto;gap:8px 16px;align-items:center;padding-block:14px;border-top:1px solid var(--line)}
+.contact-grid>div:first-child{border-top:0;padding-top:0}
+.contact-grid .k{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.contact-grid .v{overflow-wrap:anywhere;user-select:all}
+.copy{font-family:var(--mono);font-size:12px;background:none;color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:4px 10px;cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+footer{padding-block:28px 40px;font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){
+  section{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:48px}
+  .project{grid-template-columns:minmax(0,1fr)}
+  .skills div{grid-template-columns:minmax(0,1fr)}
+  .contact-grid>div{grid-template-columns:minmax(0,1fr) auto}
+  .contact-grid .k{grid-column:1/-1}
+  .hero{padding-block:48px 40px}
+}
+@media (prefers-reduced-motion:no-preference){.btn,nav a,.copy{transition:color .15s,border-color .15s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="mark">HARSH ARORA / CSE 2027</span>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="eyebrow">Backend and full-stack developer</div>
+      <h1>Harsh Arora</h1>
+      <p class="lede">Final-year B.Tech student at SRM Institute of Science and Technology. I build <strong>Spring Boot and Node.js services</strong>, tune the queries behind them, deploy them on <strong>AWS</strong>, and measure what changed.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See the projects</a>
+        <a class="btn" href="https://github.com/Harxh1">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/harsh-arora-730029277/">LinkedIn</a>
+      </div>
+      <dl class="facts">
+        <div><dt>CGPA</dt><dd>8.5 / 10</dd></div>
+        <div><dt>LeetCode</dt><dd>150+ solved</dd></div>
+        <div><dt>Certifications</dt><dd>3</dd></div>
+        <div><dt>Graduating</dt><dd>2027</dd></div>
+      </dl>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div>
+        <article class="project">
+          <div class="metric">~30%<small>lower data retrieval latency</small></div>
+          <div>
+            <h3>Social Media Analytics Dashboard</h3>
+            <p class="stack">Java · Spring Boot · MySQL · JWT · AWS EC2</p>
+            <ul>
+              <li>Spring Boot backend with <strong>15+ REST endpoints</strong> on AWS EC2, serving engagement metrics (likes, reach, CTR) to a live dashboard.</li>
+              <li>Role-based <strong>JWT authentication</strong> across 3 user roles.</li>
+              <li>Cut latency by about 30% through MySQL query tuning and JDBC connection pooling, checked under <strong>50+ simulated concurrent requests</strong>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="metric">~67%<small>faster MongoDB queries</small></div>
+          <div>
+            <h3>AgriLearn</h3>
+            <p class="stack">React · Node.js · TypeScript · MongoDB · AWS EC2 + S3</p>
+            <ul>
+              <li>Full-stack agricultural education platform with a Node.js/TypeScript API and a React frontend, averaging <strong>under 200 ms</strong> server response.</li>
+              <li>5-collection schema with <strong>compound indexing</strong> across crop, user and content data.</li>
+              <li>Integrated OpenWeatherMap and Agro Monitoring APIs with async/await retry logic, reaching <strong>99% uptime</strong> for crop advisories.</li>
+              <li>Branch-per-feature Git workflow, deployed on AWS EC2 and S3.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="metric">22%<small>better than baseline (LSTM, RMSE 0.043)</small></div>
+          <div>
+            <h3>Carbon Emission Forecasting System</h3>
+            <p class="stack">Python · TensorFlow · Pandas · NumPy</p>
+            <ul>
+              <li>6-stage ML pipeline over <strong>10,000+ environmental records</strong>: ingestion, cleaning, feature engineering, training, evaluation, visualization.</li>
+              <li>Missing-value imputation and statistical outlier removal raised accuracy <strong>8 points</strong> over baseline.</li>
+              <li>Compared Linear Regression, Random Forest, LSTM and GRU. LSTM won with <strong>RMSE 0.043 and MAE 0.031</strong>.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd class="chips"><span>Java</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span></dd></div>
+        <div><dt>Frameworks</dt><dd class="chips"><span>Spring Boot</span><span>Node.js</span><span>React.js</span><span>REST APIs</span><span>JDBC</span><span>Pandas</span><span>NumPy</span><span>TensorFlow</span></dd></div>
+        <div><dt>Databases</dt><dd class="chips"><span>MySQL</span><span>MongoDB</span><span>Oracle</span><span>Schema design</span><span>Query optimization</span><span>Indexing</span></dd></div>
+        <div><dt>Cloud and DevOps</dt><dd class="chips"><span>AWS EC2</span><span>S3</span><span>IAM</span><span>Git and GitHub</span><span>Linux</span><span>CI/CD</span><span>GitHub Actions</span></dd></div>
+        <div><dt>CS fundamentals</dt><dd class="chips"><span>Data structures and algorithms</span><span>OOP</span><span>DBMS</span><span>Operating systems</span><span>Computer networks</span><span>Multithreading</span></dd></div>
+        <div><dt>Tools</dt><dd class="chips"><span>Postman</span><span>VS Code</span><span>IntelliJ IDEA</span></dd></div>
+      </dl>
+    </section>
+
+    <section id="credentials">
+      <h2>Credentials</h2>
+      <div>
+        <h3 class="sub">Education</h3>
+        <ul class="list">
+          <li><div><b>B.Tech, Computer Science and Engineering</b><br><span>SRM Institute of Science and Technology, Chennai · CGPA 8.5 / 10</span></div><span class="tag">2023 – 2027</span></li>
+        </ul>
+        <h3 class="sub">Certifications</h3>
+        <ul class="list">
+          <li><div><b>AWS Certified Cloud Practitioner</b><br><span>Amazon Web Services</span></div></li>
+          <li><div><b>Oracle Certified Professional: Java SE 17 Developer</b><br><span>Oracle</span></div></li>
+          <li><div><b>SAP Certified Data Analyst, SAP Analytics Cloud</b><br><span>SAP</span></div><span class="tag">Valid through Apr 2027</span></li>
+        </ul>
+        <h3 class="sub">Achievements</h3>
+        <ul class="list">
+          <li><div><b>Semi-finalist, SRM Smart India Hackathon 2025</b></div></li>
+          <li><div><b>150+ LeetCode problems solved</b><br><span>Arrays, trees, dynamic programming and graphs</span></div><a class="tag" href="https://leetcode.com/u/18HAkYcBuN/">Profile</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div><span class="k">Email</span><span class="v" id="email">ha9754@srmist.edu.in</span><button class="copy" type="button" data-target="email">Copy</button></div>
+        <div><span class="k">GitHub</span><a class="v" href="https://github.com/Harxh1">github.com/Harxh1</a><span></span></div>
+        <div><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/harsh-arora-730029277/">linkedin.com/in/harsh-arora-730029277</a><span></span></div>
+        <div><span class="k">LeetCode</span><a class="v" href="https://leetcode.com/u/18HAkYcBuN/">leetcode.com/u/18HAkYcBuN</a><span></span></div>
+        <div><span class="k">Based in</span><span class="v">Chennai, India</span><span></span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Harsh Arora</span><span>Chennai, India</span></footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.dataset.target);
+    var text=el.textContent;
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1500)}
+    function fallback(){
+      var r=document.createRange();r.selectNodeContents(el);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      btn.textContent='Selected';setTimeout(function(){btn.textContent='Copy'},1500);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done,fallback);
+    }else{fallback()}
+  });
+});
+</script>
